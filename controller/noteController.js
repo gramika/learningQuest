@@ -36,14 +36,19 @@ exports.addNotesController = async (req, res) => {
 };
 
 // to get all notes
+// to get all APPROVED notes (USER)
 exports.getAllNotesController = async (req, res) => {
   try {
-    const allNotes = await notes.find().sort({ addedOn: -1 });  //{ status: "approved" }
-    res.status(200).json(allNotes);
+    const approvedNotes = await notes
+      .find({ status: "approved" })
+      .sort({ addedOn: -1 });
+
+    res.status(200).json(approvedNotes);
   } catch (err) {
     res.status(500).json(err);
   }
 };
+
 // to delete own notes
 exports.deleteOwnNoteController = async (req, res) => {
   try {
