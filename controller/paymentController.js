@@ -35,8 +35,8 @@ exports.createCheckoutSession = async (req, res) => {
                     quantity: 1,
                 },
             ],
-            success_url: "http://localhost:5173/user/payment-success?session_id={CHECKOUT_SESSION_ID}",
-            cancel_url: "http://localhost:5173/user/payment-cancel",
+            success_url: "https://learning-quest-frontend.vercel.app/user/payment-success?session_id={CHECKOUT_SESSION_ID}",
+            cancel_url: "https://learning-quest-frontend.vercel.app/user/payment-cancel",
         });
 
         // save payment as pending
